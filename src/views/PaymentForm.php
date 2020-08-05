@@ -30,6 +30,7 @@
                     class="<?php echo (!empty($viewmodel['expiration_error'])) ? 'is-invalid' : ''; ?> input"
                     value="<?php echo $viewmodel['expiration']; ?>"
                     <?php echo (!empty($viewmodel['converted_amount'])) ? 'disabled' : ''; ?>
+                    max="9999-12"
                     required
             >
             <span class="input_error"><?php echo $viewmodel['expiration_error']; ?></span>
