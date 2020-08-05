@@ -17,7 +17,6 @@ class PaymentFormModel {
     public function payment() {
         $this->data = array_merge($this->data, filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING));
         // If form input is valid
-        echo $this->validate();
         if ($this->validate()) {
             $converter = new Converter();
             $this->data['converted_amount'] = $converter->convert($this->data['source_currency'], $this->data['target_currency'], $this->data['amount']);
