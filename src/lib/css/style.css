@@ -1,0 +1,7 @@
+.input_error {
+    color: red;
+}
+
+.is-invalid {
+    border-color: red;
+}
