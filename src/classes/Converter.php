@@ -3,11 +3,9 @@
 
 class Converter {
     private $base_url;
-    private $api_key;
 
     public function __construct() {
         $this->base_url = CONVERTER_API_BASE_URL;
-        $this->api_key = API_KEY;
     }
 
     public function get_rate($source_currency, $target_currency) {

@@ -50,6 +50,7 @@ body {
 
 input:disabled {
     cursor: not-allowed;
+    color: #C7D3D3;
 }
 
 label {

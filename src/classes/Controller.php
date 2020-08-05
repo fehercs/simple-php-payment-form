@@ -8,12 +8,8 @@ abstract class Controller {
         $this->method = $method;
     }
 
-    protected function returnView($viewmodel, $fullview) {
+    protected function returnView($viewmodel) {
         $view = 'views/' . get_class($this) . '.php';
-        if ($fullview) {
-            require('views/main.php');
-        } else {
-            require($view);
-        }
+        require('views/main.php');
     }
 }

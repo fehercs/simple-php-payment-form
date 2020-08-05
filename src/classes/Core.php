@@ -4,7 +4,6 @@
 class Core {
     private $controller = 'PaymentForm';
     private $method = 'index';
-    private $params = [];
 
     public function __construct() {
         $url = $this->getUrl();
@@ -22,9 +21,10 @@ class Core {
                 unset($url[1]);
             }
         }
+        // Run the selected method of selected controller
         call_user_func([$this->controller, $this->method]);
     }
-
+    // Create an array from request URL
     public function getUrl(){
         if(isset($_GET['url'])){
             $url = rtrim($_GET['url'], '/');

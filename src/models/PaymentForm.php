@@ -2,6 +2,7 @@
 
 
 class PaymentFormModel {
+    // Variable for storing form input data and model variables; shared with appropriate view
     private $data = [
         'card_number' => '',
         'expiration' => '',
@@ -9,7 +10,6 @@ class PaymentFormModel {
         'source_currency' => 'HUF',
         'target_currency' => 'EUR'
     ];
-
     public function index() {
         return $this->data;
     }
@@ -18,12 +18,13 @@ class PaymentFormModel {
         $this->data = array_merge($this->data, filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING));
         // If form input is valid
         if ($this->validate()) {
+            // Instantiate a Converter for API access
             $converter = new Converter();
             $this->data['converted_amount'] = $converter->convert($this->data['source_currency'], $this->data['target_currency'], $this->data['amount']);
         }
         return $this->data;
     }
-
+    // Validate form input
     private function validate() {
         // Validate Card Number
         if (empty($this->data['card_number'])) {
